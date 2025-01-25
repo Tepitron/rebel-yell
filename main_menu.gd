@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	counter += 1
 	
 	if counter >= 30:
-		change -= 0.01
+		change -= 0.08
 	
 	map1.material.set("shader_parameter/contrast", change)
 	map2.material.set("shader_parameter/contrast", change)
