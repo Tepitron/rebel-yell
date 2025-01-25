@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh4gj5pt80na2"]
+
+[ext_resource type="AudioStream" uid="uid://byat4sk61docr" path="res://Music and sounds/Tuutuu.mp3" id="1_el6nv"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_el6nv")
+autoplay = true

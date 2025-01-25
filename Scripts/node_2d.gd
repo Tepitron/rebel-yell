@@ -2,7 +2,7 @@ extends Node2D
 @onready var map1 = $Head
 @onready var map2 = $Hand/Hand_sprite
 @onready var map3 = $FloatingTausta
-var change = 1.0
+var change = -10.0
 var rise = false
 
 func _ready() -> void:
@@ -14,10 +14,12 @@ func _process(delta: float) -> void:
 	#if change >= 2:
 	#	rise = false
 	
-	if rise:
-		change += 0.05
+	if change < 0:
+		change += 0.1
+		print(change)
 	else:
-		change -= 0.01
+		change = 1
+	
 	
 	map1.material.set("shader_parameter/contrast", change)
 	map2.material.set("shader_parameter/contrast", change)

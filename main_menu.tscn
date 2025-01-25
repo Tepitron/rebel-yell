@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://brndh2hxje2ki"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_cwrdl"]
+[ext_resource type="Shader" path="res://Shaders/saturation.gdshader" id="1_ilklr"]
+[ext_resource type="Texture2D" uid="uid://cq2tq5wyfpxlo" path="res://Art_assets/floating tausta.jpg" id="2_5k5q2"]
+[ext_resource type="Texture2D" uid="uid://cl4qj8hcb1pia" path="res://Art_assets/Käsiirti.png" id="4_1gk0v"]
+[ext_resource type="Texture2D" uid="uid://cu1wkp7n0h6p0" path="res://Art_assets/floating tausta.png" id="5_k8olv"]
+[ext_resource type="Texture2D" uid="uid://canl1s1u6mk2a" path="res://Art_assets/Instruction1.png" id="7_msjfn"]
+[ext_resource type="Texture2D" uid="uid://0htnbagtjvrm" path="res://Art_assets/Instruction2.png" id="8_nrfle"]
+[ext_resource type="Texture2D" uid="uid://bo1ykh53qbfeh" path="res://Art_assets/Instruction3.png" id="9_wahra"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykdho"]
+shader = ExtResource("1_ilklr")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oh2vt"]
+shader = ExtResource("1_ilklr")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 56.0
+offset_right = 55.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9088, 0.9088)
+script = ExtResource("1_cwrdl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ykdho")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.0
+offset_top = -65.0
+offset_right = 1281.0
+offset_bottom = 1283.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.39346, 0.39346)
+texture = ExtResource("2_5k5q2")
+
+[node name="Button2" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 920.043
+offset_top = 711.635
+offset_right = 967.043
+offset_bottom = 742.635
+scale = Vector2(3.59135, 3.59135)
+text = "QUIT"
+expand_icon = true
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 909.876
+offset_top = 571.85
+offset_right = 965.876
+offset_bottom = 602.85
+scale = Vector2(3.35941, 3.35941)
+text = "START"
+
+[node name="Instruction1" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_oh2vt")
+position = Vector2(568, 127)
+rotation = -0.602854
+scale = Vector2(0.149144, 0.151052)
+texture = ExtResource("7_msjfn")
+
+[node name="Instruction2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_oh2vt")
+position = Vector2(103.903, 214.286)
+rotation = 0.592211
+scale = Vector2(0.155445, 0.133188)
+texture = ExtResource("8_nrfle")
+
+[node name="Käsiirti" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ykdho")
+position = Vector2(315, 583)
+scale = Vector2(0.161185, 0.161185)
+texture = ExtResource("4_1gk0v")
+
+[node name="FloatingTausta" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ykdho")
+position = Vector2(426, 440)
+scale = Vector2(0.400083, 0.400083)
+texture = ExtResource("5_k8olv")
+
+[node name="Instruction3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_oh2vt")
+position = Vector2(581, 535)
+rotation = -0.543121
+scale = Vector2(0.146159, 0.146159)
+texture = ExtResource("9_wahra")

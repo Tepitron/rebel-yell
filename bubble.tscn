@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://duxvq83g6hw5r"]
+[gd_scene load_steps=7 format=3 uid="uid://w6rg5mtfpu48"]
 
 [ext_resource type="Script" path="res://bubble.gd" id="1_33ep7"]
 [ext_resource type="Texture2D" uid="uid://btrak27kxyohi" path="res://art/blowing_placeholder.png" id="2_21mbg"]
