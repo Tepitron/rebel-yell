@@ -1,17 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://k0u0whav4jh"]
+[gd_scene load_steps=2 format=3 uid="uid://k0u0whav4jh"]
 
-[ext_resource type="Shader" path="res://Shaders/saturation.gdshader" id="1_p7e81"]
-[ext_resource type="Texture2D" uid="uid://b8e0ogt4kh1mf" path="res://icon.svg" id="2_2ka4f"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0l1uw"]
-shader = ExtResource("1_p7e81")
-shader_parameter/brightness = 1.49012e-08
-shader_parameter/contrast = 1.0
-shader_parameter/saturation = 1.0
+[ext_resource type="Texture2D" uid="uid://cq2tq5wyfpxlo" path="res://Art_assets/floating tausta.jpg" id="1_rvvbj"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_0l1uw")
-position = Vector2(35, 55)
-texture = ExtResource("2_2ka4f")
+[node name="FloatingTausta" type="Sprite2D" parent="."]
+position = Vector2(365, 367)
+scale = Vector2(0.360821, 0.360821)
+texture = ExtResource("1_rvvbj")

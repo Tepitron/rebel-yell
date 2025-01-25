@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6ad7sru2yey6"]
+[gd_scene load_steps=4 format=3 uid="uid://tb8bpn51mjyp"]
 
+[ext_resource type="Shader" path="res://Shaders/saturation.gdshader" id="1_krme4"]
 [ext_resource type="Texture2D" uid="uid://b8e0ogt4kh1mf" path="res://icon.svg" id="1_okbbj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twy5u"]
+shader = ExtResource("1_krme4")
+shader_parameter/brightness = -0.5
+shader_parameter/contrast = -1.38
+shader_parameter/saturation = 1.23
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_twy5u")
 position = Vector2(163, 45)
 texture = ExtResource("1_okbbj")
