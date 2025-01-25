@@ -16,6 +16,7 @@ var scale_size_min
 var bubble_blowed = false
 var go_left = true
 var poksed = false
+var scale_size_decreaser
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +25,7 @@ func _ready() -> void:
 	#sway gets randomized. Used to determine how fast bubble goes left/right
 	sway = randf_range(0,1.5)
 	scale_size = $AnimatedSprite2D.scale.x
+	scale_size_decreaser = randf_range(0.00005,0.0001)
 	# flip a coin if bubble traverses left or right
 	go_left = true if (randi_range(0,1) == 1) else false
 		
@@ -54,7 +56,8 @@ func pop():
 func scale_down():
 	# Randomly chooses how fast the scale goes down. When it reaches 0.985,
 	# the bubble will pop
-	scale_size -= randf_range(0.00005, 0.00010)
+	
+	scale_size -= scale_size_decreaser
 	$AnimatedSprite2D.apply_scale(Vector2(scale_size,scale_size))
 	
 func go_upwards(delta):

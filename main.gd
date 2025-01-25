@@ -9,8 +9,20 @@ var main_menu = preload("res://main_menu.tscn").instantiate()
 @export var click_resistance = 1
 @export var MAX_BUBBLE_COUNTER = 15
 var click_counter = 0
-var bubble_counter_limit1 = 5
-var bubble_counter_limit2 = 3
+var over_all_bubbles = 0
+
+@export var bubble_counter_limit1 = 10
+@export var bubble_counter_limit2 = 8
+@export var bubble_counter_limit3 = 6
+@export var bubble_counter_limit4 = 4
+@export var bubble_counter_limit5 = 1
+
+
+var level1 = true
+var level2 = false
+var level3 = false
+var level4 = false
+var level5 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,22 +48,60 @@ func _process(delta: float) -> void:
 			# This limits the bubble_counter from being too much
 			if bubble_counter < MAX_BUBBLE_COUNTER:
 				bubble_counter += 1
+				over_all_bubbles += 1
 	
-	await get_tree().create_timer(5).timeout
+	# wait x seconds until difficulty levels start rising
 	
-	if bubble_counter < bubble_counter_limit1:
-		print_debug("Too low")
-	elif bubble_counter < bubble_counter_limit2:
-		print_debug("Even lower boy")
+	if over_all_bubbles > 10:
 	
-	fight_volume()
+		if bubble_counter > bubble_counter_limit1:
+			change_level(1)
+		
+		elif (bubble_counter < bubble_counter_limit1 && 
+			bubble_counter > bubble_counter_limit2):
+				
+			change_level(2)
+			
+		elif (bubble_counter < bubble_counter_limit2 &&
+			 bubble_counter > bubble_counter_limit3):
+			
+			change_level(3)
+		
+		elif (bubble_counter < bubble_counter_limit3 &&
+			 bubble_counter > bubble_counter_limit4):
+			
+			change_level(4)
+			
+		elif(bubble_counter < bubble_counter_limit4 &&
+			 bubble_counter > bubble_counter_limit5):
+			
+			change_level(5)
+			
+		elif bubble_counter <= 0:
+			game_over()
+			
+		
+		if level1 == true:
+			level1changes()
+			
+		elif level2 == true:
+			level2changes()
+			
+		elif level3 == true:
+			level3changes()
+			
+		elif level4 == true:
+			level4changes()
+		
+		elif level5 == true:
+			level5changes()
+		
+		fight_volume()
 	
 func fight_volume():
 	#var current_vol = 
 	pass
 	#fight_audio.volume_db += current_vol*(-1)
-	
-	
 
 func bubble_counter_down():
 	bubble_counter -= 1
@@ -71,3 +121,39 @@ func start_click_resistance_timer():
 
 func _on_click_resistance_up_timer_timeout() -> void:
 	raise_click_resistance()
+
+func change_level(level_number):
+	level1 = false
+	level2 = false
+	level3 = false
+	level4 = false
+	level5 = false
+	
+	if level_number == 1:
+		level1 = true
+	elif level_number == 2:
+		level2 = true
+	elif level_number == 3:
+		level3 = true
+	elif level_number == 4:
+		level4 = true
+	else:
+		level5 = true
+
+func game_over():
+	print_debug("Ay yo game ended dude")
+	
+func level1changes():
+	print_debug("Level 1 shaders activate")
+
+func level2changes():
+	print_debug("Level 2 shaders activate")
+	
+func level3changes():
+	print_debug("Level 3 shaders activate")
+
+func level4changes():
+	print_debug("Level 4 shaders activate")
+
+func level5changes():
+	print_debug("Level 5 shaders activate")

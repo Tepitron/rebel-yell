@@ -12,10 +12,10 @@ script = ExtResource("1_evdja")
 [node name="Node2D" parent="." instance=ExtResource("3_ys857")]
 
 [node name="ClickResistanceUpTimer" type="Timer" parent="."]
-wait_time = 1.693
+wait_time = 3.856
 
 [node name="BubbleCounterDownTimer" type="Timer" parent="."]
-wait_time = 1.756
+wait_time = 4.587
 
 [connection signal="timeout" from="ClickResistanceUpTimer" to="." method="_on_click_resistance_up_timer_timeout"]
 [connection signal="timeout" from="BubbleCounterDownTimer" to="." method="_on_bubble_counter_down_timer_timeout"]
