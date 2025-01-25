@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 	
 	if change < 0:
 		change += 0.1
-		print(change)
 	else:
 		change = 1
 	
