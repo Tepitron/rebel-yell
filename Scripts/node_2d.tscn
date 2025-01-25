@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://dhdosytcnwktq"]
+
+[ext_resource type="Script" path="res://Scripts/node_2d.gd" id="1_boocd"]
+[ext_resource type="Shader" path="res://Shaders/saturation.gdshader" id="1_p7e81"]
+[ext_resource type="Texture2D" uid="uid://cq2tq5wyfpxlo" path="res://Art_assets/floating tausta.jpg" id="1_rvvbj"]
+[ext_resource type="Script" path="res://Scripts/hand.gd" id="3_2n6jx"]
+[ext_resource type="Texture2D" uid="uid://cl4qj8hcb1pia" path="res://Art_assets/Käsiirti.png" id="3_yqb07"]
+[ext_resource type="Texture2D" uid="uid://cu1wkp7n0h6p0" path="res://Art_assets/floating tausta.png" id="4_v3khx"]
+[ext_resource type="AudioStream" uid="uid://byat4sk61docr" path="res://Music and sounds/Tuutuu.mp3" id="7_frfkq"]
+[ext_resource type="Texture2D" uid="uid://canl1s1u6mk2a" path="res://Art_assets/Instruction1.png" id="8_mhxm8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j03dq"]
+size = Vector2(83, 86.25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq4tc"]
+shader = ExtResource("1_p7e81")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7141"]
+shader = ExtResource("1_p7e81")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcuby"]
+radius = 136.077
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u27h5"]
+shader = ExtResource("1_p7e81")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_boocd")
+
+[node name="movement_area" type="Area2D" parent="."]
+position = Vector2(359, 642)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="movement_area"]
+position = Vector2(-16.5, -15.875)
+shape = SubResource("RectangleShape2D_j03dq")
+
+[node name="FloatingTausta" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kq4tc")
+position = Vector2(365, 367)
+scale = Vector2(0.360821, 0.360821)
+texture = ExtResource("1_rvvbj")
+
+[node name="Hand" type="CharacterBody2D" parent="."]
+position = Vector2(345, 625)
+scale = Vector2(0.161841, 0.161841)
+script = ExtResource("3_2n6jx")
+
+[node name="Hand_sprite" type="Sprite2D" parent="Hand"]
+material = SubResource("ShaderMaterial_n7141")
+scale = Vector2(1, 1)
+texture = ExtResource("3_yqb07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+position = Vector2(-185.368, -210.083)
+shape = SubResource("CircleShape2D_hcuby")
+
+[node name="Head" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_u27h5")
+position = Vector2(436, 468)
+scale = Vector2(0.353087, 0.353087)
+texture = ExtResource("4_v3khx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_frfkq")
+autoplay = true
+
+[node name="Instruction1" type="Sprite2D" parent="."]
+position = Vector2(624, 313)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_mhxm8")
