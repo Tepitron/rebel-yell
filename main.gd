@@ -2,6 +2,9 @@ extends Node
 var bubble_scene = preload("res://bubble.tscn")
 var hand_scene = preload("res://Scripts/node_2d.tscn").instantiate()
 var main_menu = preload("res://main_menu.tscn").instantiate()
+
+@onready var fight_audio: AudioStreamPlayer2D = $Node2D/AudioStreamPlayer2D
+
 @export var bubble_counter = 0
 @export var click_resistance = 1
 @export var MAX_BUBBLE_COUNTER = 15
@@ -40,6 +43,15 @@ func _process(delta: float) -> void:
 		print_debug("Too low")
 	elif bubble_counter < bubble_counter_limit2:
 		print_debug("Even lower boy")
+	
+	fight_volume()
+	
+func fight_volume():
+	#var current_vol = 
+	pass
+	#fight_audio.volume_db += current_vol*(-1)
+	
+	
 
 func bubble_counter_down():
 	bubble_counter -= 1
