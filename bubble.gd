@@ -15,24 +15,22 @@ var scale_size
 var scale_size_min
 var bubble_blowed = false
 var go_left = true
+var poksed = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Get spawning_point's position and spawn the bubble there
-	# TODO PLACEHOLDER, will be replaced with the spawningpoint!!!
-	position = Vector2(350,720)
-	$AnimatedSprite2D.play("blowing")
 	#sway gets randomized. Used to determine how fast bubble goes left/right
-	sway *= randf_range(1,1.5)
+	sway = randf_range(1,1.5)
 	scale_size = $AnimatedSprite2D.scale.x
 	# flip a coin if bubble traverses left or right
 	go_left = true if (randi_range(0,1) == 1) else false
-
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# TODO!!! if left click is pressed enough times
-	if Input.is_action_pressed("left_click") or bubble_blowed:
+	# if Input.is_action_pressed("left_click") or bubble_blowed:
 		#flag to ensure this plays out later when mouse is not clicked
 		bubble_blowed = true
 		$AnimatedSprite2D.play("bubble")
@@ -47,9 +45,11 @@ func _process(delta: float) -> void:
 	
 func pop():
 	#shows the bubble exploding.waits 0.2 seconds before hiding the asset
+	play_popping_audio()
 	$AnimatedSprite2D.play("pop")
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.7).timeout
 	hide()
+	queue_free()	
 	
 func scale_down():
 	# Randomly chooses how fast the scale goes down. When it reaches 0.985,
@@ -69,3 +69,10 @@ func go_left_or_right(delta):
 		position.x += sway * sway_softener
 	else:
 		position.x -= sway * sway_softener
+
+func play_popping_audio():
+	if poksed == false:
+		$AudioStreamPlayer2D.play()
+		poksed = true
+	else:
+		pass

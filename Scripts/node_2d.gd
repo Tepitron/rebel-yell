@@ -23,3 +23,5 @@ func _process(delta: float) -> void:
 	map2.material.set("shader_parameter/contrast", change)
 	map3.material.set("shader_parameter/contrast", change)
 	
+	
+	

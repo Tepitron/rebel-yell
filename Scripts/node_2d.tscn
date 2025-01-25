@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhdosytcnwktq"]
+[gd_scene load_steps=14 format=3 uid="uid://k0u0whav4jh"]
 
 [ext_resource type="Script" path="res://Scripts/node_2d.gd" id="1_boocd"]
 [ext_resource type="Shader" path="res://Shaders/saturation.gdshader" id="1_p7e81"]
@@ -56,12 +56,14 @@ script = ExtResource("3_2n6jx")
 
 [node name="Hand_sprite" type="Sprite2D" parent="Hand"]
 material = SubResource("ShaderMaterial_n7141")
-scale = Vector2(1, 1)
 texture = ExtResource("3_yqb07")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
 position = Vector2(-185.368, -210.083)
 shape = SubResource("CircleShape2D_hcuby")
+
+[node name="SpawningPoint" type="Marker2D" parent="Hand"]
+position = Vector2(-154.473, -525.207)
 
 [node name="Head" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_u27h5")

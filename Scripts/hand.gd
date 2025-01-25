@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-
 @onready var movement_area = $"../movement_area"
 
 const SPEED = 100.0
 const radius = 50
 
+func _ready():
+	$SpawningPoint.position = position
 
 func _physics_process(delta: float) -> void:
 	# Thank you David Wong from the godot forums
@@ -16,4 +17,7 @@ func _physics_process(delta: float) -> void:
 	if distance > radius:
 		mouse_pos = player_pos + (mouse_dir * radius)
 	global_transform.origin = mouse_pos
+
+func _process(delta):
+	$SpawningPoint.position = position
 	
