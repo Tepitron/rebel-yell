@@ -6,7 +6,7 @@
 
 extends Node2D
 
-@export var speed = 1.5
+@export var speed = 1
 @export var acceleration = 1.01
 @export var SCALE_MIN = 0.985
 var sway
@@ -22,7 +22,7 @@ var poksed = false
 func _ready() -> void:
 	# Get spawning_point's position and spawn the bubble there
 	#sway gets randomized. Used to determine how fast bubble goes left/right
-	sway = randf_range(1,1.5)
+	sway = randf_range(0,1.5)
 	scale_size = $AnimatedSprite2D.scale.x
 	# flip a coin if bubble traverses left or right
 	go_left = true if (randi_range(0,1) == 1) else false
@@ -59,7 +59,7 @@ func scale_down():
 	
 func go_upwards(delta):
 	# changes y according to speed and acceleration.
-	acceleration += 1.01
+	acceleration += 1.008
 	position.y -= speed * acceleration * delta
 
 func go_left_or_right(delta):
@@ -74,5 +74,3 @@ func play_popping_audio():
 	if poksed == false:
 		$AudioStreamPlayer2D.play()
 		poksed = true
-	else:
-		pass
