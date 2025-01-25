@@ -80,4 +80,3 @@ texture = ExtResource("8_mhxm8")
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("8_dnxo0")]
 stream = ExtResource("9_jwoli")
 volume_db = -13.927
-autoplay = false
