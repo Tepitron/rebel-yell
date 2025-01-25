@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://k0u0whav4jh"]
+[gd_scene load_steps=13 format=3 uid="uid://k0u0whav4jh"]
 
 [ext_resource type="Script" path="res://Scripts/node_2d.gd" id="1_boocd"]
 [ext_resource type="Shader" path="res://Shaders/saturation.gdshader" id="1_p7e81"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/hand.gd" id="3_2n6jx"]
 [ext_resource type="Texture2D" uid="uid://cl4qj8hcb1pia" path="res://Art_assets/Käsiirti.png" id="3_yqb07"]
 [ext_resource type="Texture2D" uid="uid://cu1wkp7n0h6p0" path="res://Art_assets/floating tausta.png" id="4_v3khx"]
+[ext_resource type="AudioStream" uid="uid://byat4sk61docr" path="res://Music and sounds/Tuutuu.mp3" id="7_frfkq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j03dq"]
 size = Vector2(83, 86.25)
@@ -66,3 +67,7 @@ material = SubResource("ShaderMaterial_u27h5")
 position = Vector2(436, 468)
 scale = Vector2(0.353087, 0.353087)
 texture = ExtResource("4_v3khx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_frfkq")
+autoplay = true

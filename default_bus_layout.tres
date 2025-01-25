@@ -1,0 +1,16 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://baejxim0miikh"]
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_bmx64"]
+resource_name = "Distortion"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_3u4xp"]
+resource_name = "Reverb"
+room_size = 0.34
+hipass = 1.0
+
+[resource]
+bus/0/volume_db = 0.267241
+bus/0/effect/0/effect = SubResource("AudioEffectDistortion_bmx64")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_3u4xp")
+bus/0/effect/1/enabled = true
