@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caxiqdufr53o1"
+path="res://.godot/imported/pop4.mp3-d8952d7a550cac8f17414190f1c1ad0f.mp3str"
+
+[deps]
+
+source_file="res://Music and sounds/pop4.mp3"
+dest_files=["res://.godot/imported/pop4.mp3-d8952d7a550cac8f17414190f1c1ad0f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
