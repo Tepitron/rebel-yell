@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://dfxbsveib1hk"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://dfxbsveib1hk"]
 
 [sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_bmx64"]
 resource_name = "Distortion"
@@ -8,9 +8,22 @@ resource_name = "Reverb"
 room_size = 0.34
 hipass = 1.0
 
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_qf1xg"]
+resource_name = "HighPassFilter"
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_a26e8"]
+resource_name = "LowPassFilter"
+cutoff_hz = 1000.0
+resonance = 1.0
+db = 2
+
 [resource]
 bus/0/volume_db = 0.267241
 bus/0/effect/0/effect = SubResource("AudioEffectDistortion_bmx64")
-bus/0/effect/0/enabled = false
+bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectReverb_3u4xp")
-bus/0/effect/1/enabled = true
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectHighPassFilter_qf1xg")
+bus/0/effect/2/enabled = false
+bus/0/effect/3/effect = SubResource("AudioEffectLowPassFilter_a26e8")
+bus/0/effect/3/enabled = true
