@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://duxvq83g6hw5r"]
+
+[ext_resource type="Texture2D" uid="uid://c5jsvaotmuds7" path="res://art/bubble_placeholder.png" id="1_4s0hr"]
+[ext_resource type="Script" path="res://bubble.gd" id="1_33ep7"]
+[ext_resource type="Texture2D" uid="uid://btrak27kxyohi" path="res://art/blowing_placeholder.png" id="2_21mbg"]
+[ext_resource type="Texture2D" uid="uid://wj71ll3a2dr0" path="res://art/pop_placeholder.png" id="4_gfb6u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5np2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_21mbg")
+}],
+"loop": true,
+"name": &"blowing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4s0hr")
+}],
+"loop": true,
+"name": &"bubble",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gfb6u")
+}],
+"loop": true,
+"name": &"pop",
+"speed": 5.0
+}]
+
+[node name="Bubble" type="Node2D"]
+position = Vector2(330, 213)
+script = ExtResource("1_33ep7")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5np2r")
+animation = &"pop"
