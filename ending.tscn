@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://c26lpfe2rvafx"]
+
+[ext_resource type="Texture2D" uid="uid://cq2tq5wyfpxlo" path="res://Art_assets/floating tausta.jpg" id="1_4370y"]
+[ext_resource type="Script" path="res://ending.gd" id="1_ku5pe"]
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ku5pe")
+
+[node name="FloatingTausta" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(405, 207)
+texture = ExtResource("1_4370y")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 303.0
+offset_top = 264.0
+offset_right = 417.0
+offset_bottom = 287.0
+text = "THAT WAS THEN"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 303.0
+offset_top = 264.0
+offset_right = 417.0
+offset_bottom = 287.0
+text = "BUT NOW..."
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 203.0
+offset_top = 264.0
+offset_right = 546.0
+offset_bottom = 287.0
+text = "YOU DONT HAVE TO FLOAT AWAY ANYMORE"
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 303.0
+offset_top = 264.0
+offset_right = 417.0
+offset_bottom = 287.0
+text = "SEEK THERAPY"
+
+[node name="Label5" type="Label" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 286.0
+offset_top = 264.0
+offset_right = 451.0
+offset_bottom = 287.0
+text = "IT REALLY DOES HELP"
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
