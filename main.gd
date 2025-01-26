@@ -100,7 +100,7 @@ func _process(delta: float) -> void:
 		elif bubble_counter == 0:
 			if brightness_value > -1.0:
 				print("What the fuck")
-				brightness_value -= 0.01
+				brightness_value -= 0.02
 				volume -= 1
 				fight_audio.volume_db = volume
 				background.material.set("shader_parameter/brightness", brightness_value)
@@ -184,18 +184,24 @@ func game_over():
 	
 func level1changes():
 	print_debug("Level 1 shaders activate")
+	volume = -11
+	fight_audio.volume_db = volume
 
 func level2changes():
 	print_debug("Level 2 shaders activate")
-	
+	volume = -8
+	fight_audio.volume_db = volume
 func level3changes():
 	print_debug("Level 3 shaders activate")
-
+	volume = -5
+	fight_audio.volume_db = volume
 func level4changes():
 	print_debug("Level 4 shaders activate")
-
+	volume = -2
+	fight_audio.volume_db = volume
 func level5changes():
 	print_debug("Level 5 shaders activate")
-
+	volume = 1
+	fight_audio.volume_db = volume
 
 	
