@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_evdja"]
 [ext_resource type="Texture2D" uid="uid://bpcagwte3x7o" path="res://Art_assets/kupla_stretch.png" id="3_ljmfx"]
-[ext_resource type="PackedScene" uid="uid://k0u0whav4jh" path="res://Scripts/node_2d.tscn" id="3_ys857"]
+[ext_resource type="PackedScene" uid="uid://dhdosytcnwktq" path="res://Scripts/node_2d.tscn" id="3_ys857"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rkqss"]
 animations = [{
@@ -21,10 +21,10 @@ script = ExtResource("1_evdja")
 [node name="Node2D" parent="." instance=ExtResource("3_ys857")]
 
 [node name="ClickResistanceUpTimer" type="Timer" parent="."]
-wait_time = 0.246
+wait_time = 10.0
 
 [node name="BubbleCounterDownTimer" type="Timer" parent="."]
-wait_time = 0.884
+wait_time = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rkqss")

@@ -35,6 +35,7 @@ var level_4_change_done = false
 var level_5_change_done = false
 
 var brightness_value = 0
+var saturation = 1
 
 var volume = -15
 
@@ -170,7 +171,6 @@ func change_level(level_number):
 
 func game_over():
 	if brightness_value > -1.0:
-			print("What the fuck")
 			brightness_value -= 0.01
 			volume -= 1
 			fight_audio.volume_db = volume
@@ -187,7 +187,7 @@ func level1changes():
 	level_4_change_done = false
 	level_5_change_done = false
 	
-	saturation_up(1,100)
+	saturation_change(0.8)
 	print_debug("Level 1 shaders activate")
 	volume = -11
 	fight_audio.volume_db = volume
@@ -199,6 +199,7 @@ func level2changes():
 	level_4_change_done = false
 	level_5_change_done = false
 	
+	saturation_change(0.6)
 	print_debug("Level 2 shaders activate")
 	volume = -8
 	fight_audio.volume_db = volume
@@ -209,6 +210,7 @@ func level3changes():
 	level_4_change_done = false
 	level_5_change_done = false
 	
+	saturation_change(0.4)
 	print_debug("Level 3 shaders activate")
 	volume = -5
 	fight_audio.volume_db = volume
@@ -219,6 +221,7 @@ func level4changes():
 	level_4_change_done = true
 	level_5_change_done = false
 	
+	saturation_change(0.2)
 	print_debug("Level 4 shaders activate")
 	volume = -2
 	fight_audio.volume_db = volume
@@ -229,15 +232,34 @@ func level5changes():
 	level_4_change_done = false
 	level_5_change_done = true
 	
+	saturation_change(0.0)
 	print_debug("Level 5 shaders activate")
 	volume = 1
 	fight_audio.volume_db = volume
 
-func saturation_up(from,to):
-	var x = from
-	while(x < to):
-		x += 1
-		print_debug(x)
-
-func saturation_down(from,to):
-	pass
+func saturation_change(to):
+	var difference = saturation-to
+	if difference < 0:
+		difference *= -1
+	var change = difference/10
+	var loops = int(difference*50)+1
+	
+	print(difference)
+	print(change)
+	print(loops)
+	
+	if to < saturation:
+		for i in range(loops):
+			saturation -= change
+			background.material.set("shader_parameter/saturation", saturation)
+			head.material.set("shader_parameter/saturation", saturation)
+			hand_sprite.material.set("shader_parameter/saturation", saturation)
+	elif to > saturation:
+		for i in range(loops):
+			saturation += change
+			background.material.set("shader_parameter/saturation", saturation)
+			head.material.set("shader_parameter/saturation", saturation)
+			hand_sprite.material.set("shader_parameter/saturation", saturation)
+	else:
+		print("lessgo")
+		pass
