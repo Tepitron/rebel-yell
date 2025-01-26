@@ -15,6 +15,7 @@ var click_counter = 0
 var over_all_bubbles = 0
 var timers_started = false
 @export var blowing_sprite_scale = 1.1
+@export var DIFFICULTY_STARTING_LIMIT = 15
 
 @export var bubble_counter_limit1 = 10
 @export var bubble_counter_limit2 = 8
@@ -54,7 +55,7 @@ func _process(delta: float) -> void:
 		click_counter += 1
 		if click_counter >= click_resistance:
 			$AnimatedSprite2D.hide()
-			$AnimatedSprite2D.apply_scale(Vector2(1,1))
+			$AnimatedSprite2D.scale = Vector2(1,1)
 			# creates a bubble_scene and places it on the hand asset
 			var instance = bubble_scene.instantiate()
 			instance.position = $Node2D/Hand.position
@@ -70,7 +71,7 @@ func _process(delta: float) -> void:
 		else:
 			stretch_bubble()
 	
-	if over_all_bubbles > 10:
+	if over_all_bubbles > DIFFICULTY_STARTING_LIMIT:
 		if not timers_started:
 			start_bubble_counter_timer()
 			start_click_resistance_timer()
