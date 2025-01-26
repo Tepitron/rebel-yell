@@ -1,7 +1,7 @@
 extends Node
 var bubble_scene = preload("res://bubble.tscn")
 var hand_scene = preload("res://Scripts/node_2d.tscn").instantiate()
-var main_menu = preload("res://main_menu.tscn").instantiate()
+var ending = preload("res://ending.tscn")
 
 @onready var fight_audio: AudioStreamPlayer2D = $Node2D/AudioStreamPlayer2D
 
@@ -10,13 +10,13 @@ var main_menu = preload("res://main_menu.tscn").instantiate()
 @export var MAX_BUBBLE_COUNTER = 15
 var click_counter = 0
 var over_all_bubbles = 0
+var timers_started = false
 
 @export var bubble_counter_limit1 = 10
 @export var bubble_counter_limit2 = 8
 @export var bubble_counter_limit3 = 6
 @export var bubble_counter_limit4 = 4
 @export var bubble_counter_limit5 = 1
-
 
 var level1 = true
 var level2 = false
@@ -28,8 +28,6 @@ var level5 = false
 func _ready() -> void:
 	bubble_counter = 0
 	click_counter = 0
-	start_bubble_counter_timer()
-	start_click_resistance_timer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -53,6 +51,10 @@ func _process(delta: float) -> void:
 	# wait x seconds until difficulty levels start rising
 	
 	if over_all_bubbles > 10:
+		if not timers_started:
+			start_bubble_counter_timer()
+			start_click_resistance_timer()
+			timers_started = true
 	
 		if bubble_counter > bubble_counter_limit1:
 			change_level(1)
@@ -77,9 +79,8 @@ func _process(delta: float) -> void:
 			
 			change_level(5)
 			
-		elif bubble_counter <= 0:
-			game_over()
-			
+		elif bubble_counter == 0:
+			game_over()	
 		
 		if level1 == true:
 			level1changes()
@@ -141,7 +142,7 @@ func change_level(level_number):
 		level5 = true
 
 func game_over():
-	print_debug("Ay yo game ended dude")
+	get_tree().change_scene_to_packed(ending)
 	
 func level1changes():
 	print_debug("Level 1 shaders activate")
@@ -157,3 +158,6 @@ func level4changes():
 
 func level5changes():
 	print_debug("Level 5 shaders activate")
+
+
+	
