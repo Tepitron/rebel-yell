@@ -12,12 +12,10 @@ extends Node2D
 var sway
 var sway_softener = 0.999
 var scale_size
-var scale_size_min
 var bubble_blowed = false
 var go_left = true
 var poksed = false
 var scale_size_decreaser
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

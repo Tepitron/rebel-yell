@@ -8,7 +8,6 @@ extends Control
 
 @export var main_menu = preload("res://main_menu.tscn")
 
-
 var counter = 0
 var brightness = -1
 
