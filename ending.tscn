@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://2g782r463uj"]
+[gd_scene load_steps=3 format=3 uid="uid://c26lpfe2rvafx"]
 
 [ext_resource type="Texture2D" uid="uid://cq2tq5wyfpxlo" path="res://Art_assets/floating tausta.jpg" id="1_4370y"]
 [ext_resource type="Script" path="res://ending.gd" id="1_ku5pe"]
