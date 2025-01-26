@@ -181,11 +181,8 @@ func game_over():
 		get_tree().change_scene_to_packed(ending)
 	
 func level1changes():
+	default_level_change_flags_to_false()
 	level_1_change_done = true
-	level_2_change_done = false
-	level_3_change_done = false
-	level_4_change_done = false
-	level_5_change_done = false
 	
 	saturation_up(1,100)
 	print_debug("Level 1 shaders activate")
@@ -193,40 +190,31 @@ func level1changes():
 	fight_audio.volume_db = volume
 
 func level2changes():
-	level_1_change_done = false
+	default_level_change_flags_to_false()
 	level_2_change_done = true
-	level_3_change_done = false
-	level_4_change_done = false
-	level_5_change_done = false
 	
 	print_debug("Level 2 shaders activate")
 	volume = -8
 	fight_audio.volume_db = volume
+	
 func level3changes():
-	level_1_change_done = false
-	level_2_change_done = false
+	default_level_change_flags_to_false()
 	level_3_change_done = true
-	level_4_change_done = false
-	level_5_change_done = false
 	
 	print_debug("Level 3 shaders activate")
 	volume = -5
 	fight_audio.volume_db = volume
+	
 func level4changes():
-	level_1_change_done = false
-	level_2_change_done = false
-	level_3_change_done = false
+	default_level_change_flags_to_false()
 	level_4_change_done = true
-	level_5_change_done = false
 	
 	print_debug("Level 4 shaders activate")
 	volume = -2
 	fight_audio.volume_db = volume
+	
 func level5changes():
-	level_1_change_done = false
-	level_2_change_done = false
-	level_3_change_done = false
-	level_4_change_done = false
+	default_level_change_flags_to_false()
 	level_5_change_done = true
 	
 	print_debug("Level 5 shaders activate")
@@ -241,3 +229,10 @@ func saturation_up(from,to):
 
 func saturation_down(from,to):
 	pass
+	
+func default_level_change_flags_to_false():
+	level_1_change_done = false
+	level_2_change_done = false
+	level_3_change_done = false
+	level_4_change_done = false
+	level_5_change_done = false
