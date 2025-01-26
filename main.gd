@@ -4,6 +4,11 @@ var hand_scene = preload("res://Scripts/node_2d.tscn").instantiate()
 var ending = preload("res://ending.tscn")
 
 @onready var fight_audio: AudioStreamPlayer2D = $Node2D/AudioStreamPlayer2D
+@onready var background: Sprite2D = $Node2D/FloatingTausta
+@onready var head: Sprite2D = $Node2D/Head
+@onready var hand_sprite: Sprite2D = $Node2D/Hand/Hand_sprite
+@onready var instruction_1: Sprite2D = $Node2D/Instruction1
+
 
 @export var bubble_counter = 0
 @export var click_resistance = 1
@@ -24,6 +29,8 @@ var level2 = false
 var level3 = false
 var level4 = false
 var level5 = false
+
+var brightness_value = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -89,7 +96,20 @@ func _process(delta: float) -> void:
 			change_level(5)
 			
 		elif bubble_counter == 0:
-			game_over()	
+			print(brightness_value)
+			print(bubble_counter)
+			if brightness_value > -1.0:
+				print("What the fuck")
+				brightness_value -= 0.02
+				instruction_1.set("shader_parameter/brightness", brightness_value)
+				background.material.set("shader_parameter/brightness", brightness_value)
+				head.material.set("shader_parameter/brightness", brightness_value)
+				hand_sprite.material.set("shader_parameter/brightness", brightness_value)	
+			else:
+				await get_tree().create_timer(1.2).timeout
+				game_over()
+			
+			
 			
 		
 		if level1 == true:
