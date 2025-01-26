@@ -8,8 +8,6 @@ var ending = preload("res://ending.tscn")
 @onready var head: Sprite2D = $Node2D/Head
 @onready var hand_sprite: Sprite2D = $Node2D/Hand/Hand_sprite
 
-
-
 @export var bubble_counter = 0
 @export var click_resistance = 1
 @export var MAX_BUBBLE_COUNTER = 15
@@ -29,6 +27,12 @@ var level2 = false
 var level3 = false
 var level4 = false
 var level5 = false
+
+var level_1_change_done = false
+var level_2_change_done = false
+var level_3_change_done = false
+var level_4_change_done = false
+var level_5_change_done = false
 
 var brightness_value = 0
 
@@ -64,9 +68,6 @@ func _process(delta: float) -> void:
 				over_all_bubbles += 1
 		else:
 			stretch_bubble()
-			
-			
-	# wait x seconds until difficulty levels start rising
 	
 	if over_all_bubbles > 10:
 		if not timers_started:
@@ -97,35 +98,23 @@ func _process(delta: float) -> void:
 			
 			change_level(5)
 			
-		elif bubble_counter == 0:
-			if brightness_value > -1.0:
-				print("What the fuck")
-				brightness_value -= 0.02
-				volume -= 1
-				fight_audio.volume_db = volume
-				background.material.set("shader_parameter/brightness", brightness_value)
-				head.material.set("shader_parameter/brightness", brightness_value)
-				hand_sprite.material.set("shader_parameter/brightness", brightness_value)	
-			else:
-				await get_tree().create_timer(0.5).timeout
+		elif bubble_counter <= 0:
+			
 				game_over()
 			
-			
-			
-		
-		if level1 == true:
+		if level1 == true && !level_1_change_done:
 			level1changes()
 			
-		elif level2 == true:
+		elif level2 == true && !level_2_change_done:
 			level2changes()
 			
-		elif level3 == true:
+		elif level3 == true && !level_3_change_done:
 			level3changes()
 			
-		elif level4 == true:
+		elif level4 == true && !level_4_change_done:
 			level4changes()
 		
-		elif level5 == true:
+		elif level5 == true && !level_5_change_done:
 			level5changes()
 		
 		fight_volume()
@@ -180,28 +169,75 @@ func change_level(level_number):
 		level5 = true
 
 func game_over():
-	get_tree().change_scene_to_packed(ending)
+	if brightness_value > -1.0:
+			print("What the fuck")
+			brightness_value -= 0.01
+			volume -= 1
+			fight_audio.volume_db = volume
+			background.material.set("shader_parameter/brightness", brightness_value)
+			head.material.set("shader_parameter/brightness", brightness_value)
+			hand_sprite.material.set("shader_parameter/brightness", brightness_value)		
+	else:
+		get_tree().change_scene_to_packed(ending)
 	
 func level1changes():
+	level_1_change_done = true
+	level_2_change_done = false
+	level_3_change_done = false
+	level_4_change_done = false
+	level_5_change_done = false
+	
+	saturation_up(1,100)
 	print_debug("Level 1 shaders activate")
 	volume = -11
 	fight_audio.volume_db = volume
 
 func level2changes():
+	level_1_change_done = false
+	level_2_change_done = true
+	level_3_change_done = false
+	level_4_change_done = false
+	level_5_change_done = false
+	
 	print_debug("Level 2 shaders activate")
 	volume = -8
 	fight_audio.volume_db = volume
 func level3changes():
+	level_1_change_done = false
+	level_2_change_done = false
+	level_3_change_done = true
+	level_4_change_done = false
+	level_5_change_done = false
+	
 	print_debug("Level 3 shaders activate")
 	volume = -5
 	fight_audio.volume_db = volume
 func level4changes():
+	level_1_change_done = false
+	level_2_change_done = false
+	level_3_change_done = false
+	level_4_change_done = true
+	level_5_change_done = false
+	
 	print_debug("Level 4 shaders activate")
 	volume = -2
 	fight_audio.volume_db = volume
 func level5changes():
+	level_1_change_done = false
+	level_2_change_done = false
+	level_3_change_done = false
+	level_4_change_done = false
+	level_5_change_done = true
+	
 	print_debug("Level 5 shaders activate")
 	volume = 1
 	fight_audio.volume_db = volume
 
-	
+func saturation_up(from,to):
+	var x = from
+	while(x < to):
+		x += 1
+		print_debug(x)
+
+func saturation_down(from,to):
+	pass

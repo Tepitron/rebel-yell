@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhdosytcnwktq"]
+[gd_scene load_steps=15 format=3 uid="uid://k0u0whav4jh"]
 
 [ext_resource type="Script" path="res://Scripts/node_2d.gd" id="1_boocd"]
 [ext_resource type="Shader" path="res://Shaders/saturation.gdshader" id="1_p7e81"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/hand.gd" id="3_2n6jx"]
 [ext_resource type="Texture2D" uid="uid://cl4qj8hcb1pia" path="res://Art_assets/Käsiirti.png" id="3_yqb07"]
 [ext_resource type="Texture2D" uid="uid://cu1wkp7n0h6p0" path="res://Art_assets/floating tausta.png" id="4_v3khx"]
-[ext_resource type="PackedScene" uid="uid://dh4gj5pt80na2" path="res://Music and sounds/audio_stream_player_2d.tscn" id="8_dnxo0"]
+[ext_resource type="PackedScene" path="res://Music and sounds/audio_stream_player_2d.tscn" id="8_dnxo0"]
+[ext_resource type="Texture2D" uid="uid://canl1s1u6mk2a" path="res://Art_assets/Instruction1.png" id="8_mhxm8"]
 [ext_resource type="AudioStream" uid="uid://b1d7iks0fpawq" path="res://Music and sounds/Placeholder muffled no squirl.mp3" id="9_khvsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j03dq"]
@@ -70,6 +71,11 @@ material = SubResource("ShaderMaterial_u27h5")
 position = Vector2(436, 468)
 scale = Vector2(0.353087, 0.353087)
 texture = ExtResource("4_v3khx")
+
+[node name="Instruction1" type="Sprite2D" parent="."]
+position = Vector2(624, 313)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_mhxm8")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("8_dnxo0")]
 stream = ExtResource("9_khvsu")
