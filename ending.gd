@@ -70,4 +70,3 @@ func _process(delta: float) -> void:
 	elif counter >= 1800:
 		get_tree().change_scene_to_packed(main_menu)
 			
-			

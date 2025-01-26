@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btrak27kxyohi"
-path="res://.godot/imported/blowing_placeholder.png-7c765a0a2c3edb9015dae7074820e2e3.ctex"
+uid="uid://wj71ll3a2dr0"
+path="res://.godot/imported/pop_placeholder.png-f0cd431f2f013323ab6e622bdac16bb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/blowing_placeholder.png"
-dest_files=["res://.godot/imported/blowing_placeholder.png-7c765a0a2c3edb9015dae7074820e2e3.ctex"]
+source_file="res://Art_assets/pop_placeholder.png"
+dest_files=["res://.godot/imported/pop_placeholder.png-f0cd431f2f013323ab6e622bdac16bb9.ctex"]
 
 [params]
 

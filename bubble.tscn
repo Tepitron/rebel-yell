@@ -1,21 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://duxvq83g6hw5r"]
+[gd_scene load_steps=6 format=3 uid="uid://duxvq83g6hw5r"]
 
 [ext_resource type="Script" path="res://bubble.gd" id="1_33ep7"]
-[ext_resource type="Texture2D" uid="uid://btrak27kxyohi" path="res://art/blowing_placeholder.png" id="2_21mbg"]
 [ext_resource type="Texture2D" uid="uid://dmiuvv35irqik" path="res://Art_assets/kupla.png" id="3_b7iy6"]
-[ext_resource type="Texture2D" uid="uid://wj71ll3a2dr0" path="res://art/pop_placeholder.png" id="4_gfb6u"]
+[ext_resource type="Texture2D" uid="uid://wj71ll3a2dr0" path="res://Art_assets/pop_placeholder.png" id="4_gfb6u"]
 [ext_resource type="AudioStream" uid="uid://chu1bmmcg8ttl" path="res://Music and sounds/pop1.mp3" id="5_y5bvr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5np2r"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_21mbg")
-}],
-"loop": true,
-"name": &"blowing",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_b7iy6")

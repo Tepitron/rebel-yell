@@ -11,6 +11,7 @@ var ending = preload("res://ending.tscn")
 var click_counter = 0
 var over_all_bubbles = 0
 var timers_started = false
+@export var blowing_sprite_scale = 1.1
 
 @export var bubble_counter_limit1 = 10
 @export var bubble_counter_limit2 = 8
@@ -28,13 +29,18 @@ var level5 = false
 func _ready() -> void:
 	bubble_counter = 0
 	click_counter = 0
+	$AnimatedSprite2D.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$AnimatedSprite2D.position.x = $Node2D/Hand.position.x - 30
+	$AnimatedSprite2D.position.y = $Node2D/Hand.position.y - 100 
 
 	if Input.is_action_just_pressed("left_click"):
 		click_counter += 1
 		if click_counter >= click_resistance:
+			$AnimatedSprite2D.hide()
+			$AnimatedSprite2D.apply_scale(Vector2(1,1))
 			# creates a bubble_scene and places it on the hand asset
 			var instance = bubble_scene.instantiate()
 			instance.position = $Node2D/Hand.position
@@ -47,7 +53,10 @@ func _process(delta: float) -> void:
 			if bubble_counter < MAX_BUBBLE_COUNTER:
 				bubble_counter += 1
 				over_all_bubbles += 1
-	
+		else:
+			stretch_bubble()
+			
+			
 	# wait x seconds until difficulty levels start rising
 	
 	if over_all_bubbles > 10:
@@ -81,6 +90,7 @@ func _process(delta: float) -> void:
 			
 		elif bubble_counter == 0:
 			game_over()	
+			
 		
 		if level1 == true:
 			level1changes()
@@ -99,6 +109,13 @@ func _process(delta: float) -> void:
 		
 		fight_volume()
 	
+func stretch_bubble():
+	$AnimatedSprite2D.show()
+	$AnimatedSprite2D.play("kupla_stretch")
+	if click_counter > 2:
+		if $AnimatedSprite2D.scale.x < 2:
+			$AnimatedSprite2D.apply_scale(Vector2(blowing_sprite_scale,blowing_sprite_scale))
+
 func fight_volume():
 	#var current_vol = 
 	pass

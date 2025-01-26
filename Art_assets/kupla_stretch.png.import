@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5jsvaotmuds7"
-path="res://.godot/imported/bubble_placeholder.png-91673ac2a1cfa74036f65b3e1425e419.ctex"
+uid="uid://bpcagwte3x7o"
+path="res://.godot/imported/kupla_stretch.png-988575f542df0f4a8b32f8abfa983391.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bubble_placeholder.png"
-dest_files=["res://.godot/imported/bubble_placeholder.png-91673ac2a1cfa74036f65b3e1425e419.ctex"]
+source_file="res://Art_assets/kupla_stretch.png"
+dest_files=["res://.godot/imported/kupla_stretch.png-988575f542df0f4a8b32f8abfa983391.ctex"]
 
 [params]
 
