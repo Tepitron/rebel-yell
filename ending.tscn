@@ -31,21 +31,21 @@ text = "THAT WAS THEN"
 visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 303.0
+offset_left = 198.0
 offset_top = 264.0
-offset_right = 417.0
+offset_right = 533.0
 offset_bottom = 287.0
-text = "BUT NOW..."
+text = "NOW IS THE TIME TO FACE THOSE FEELINGS"
 
 [node name="Label3" type="Label" parent="."]
 visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 203.0
+offset_left = 131.0
 offset_top = 264.0
-offset_right = 546.0
+offset_right = 595.0
 offset_bottom = 287.0
-text = "YOU DONT HAVE TO FLOAT AWAY ANYMORE"
+text = "YOU DONT HAVE TO FLOAT AWAY FROM TRAUMA ANYMORE"
 
 [node name="Label4" type="Label" parent="."]
 visible = false
@@ -55,7 +55,7 @@ offset_left = 303.0
 offset_top = 264.0
 offset_right = 417.0
 offset_bottom = 287.0
-text = "SEEK THERAPY"
+text = "TALK ABOUT IT"
 
 [node name="Label5" type="Label" parent="."]
 visible = false
@@ -66,6 +66,3 @@ offset_top = 264.0
 offset_right = 451.0
 offset_bottom = 287.0
 text = "IT REALLY DOES HELP"
-
-[node name="Timer" type="Timer" parent="."]
-process_callback = 0
