@@ -10,18 +10,18 @@ var ending = preload("res://ending.tscn")
 
 @export var bubble_counter = 0
 @export var click_resistance = 1
-@export var MAX_BUBBLE_COUNTER = 15
+@export var MAX_BUBBLE_COUNTER = 19
 var click_counter = 0
 var over_all_bubbles = 0
 var timers_started = false
 @export var blowing_sprite_scale = 1.1
 @export var DIFFICULTY_STARTING_LIMIT = 15
 
-@export var bubble_counter_limit1 = 10
-@export var bubble_counter_limit2 = 8
-@export var bubble_counter_limit3 = 6
-@export var bubble_counter_limit4 = 4
-@export var bubble_counter_limit5 = 1
+@export var bubble_counter_limit1 = 14
+@export var bubble_counter_limit2 = 12
+@export var bubble_counter_limit3 = 8
+@export var bubble_counter_limit4 = 6
+@export var bubble_counter_limit5 = 3
 
 var level1 = true
 var level2 = false
@@ -42,6 +42,8 @@ var volume = -15
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	brightness_value = 0
+	saturation = 1
 	bubble_counter = 0
 	click_counter = 0
 	$AnimatedSprite2D.hide()
@@ -72,6 +74,7 @@ func _process(delta: float) -> void:
 			stretch_bubble()
 	
 	if over_all_bubbles > DIFFICULTY_STARTING_LIMIT:
+		
 		if not timers_started:
 			start_bubble_counter_timer()
 			start_click_resistance_timer()
@@ -138,7 +141,6 @@ func bubble_counter_down():
 		
 func raise_click_resistance():
 	click_resistance += 1
-	print_debug("click resistance raised")
 
 func _on_bubble_counter_down_timer_timeout() -> void:
 	bubble_counter_down()
@@ -186,7 +188,6 @@ func level1changes():
 	level_1_change_done = true
 	
 	saturation_change(0.8)
-	print_debug("Level 1 shaders activate")
 	volume = -11
 	fight_audio.volume_db = volume
 
@@ -195,7 +196,6 @@ func level2changes():
 	level_2_change_done = true
 	
 	saturation_change(0.6)
-	print_debug("Level 2 shaders activate")
 	volume = -8
 	fight_audio.volume_db = volume
 	
@@ -204,7 +204,6 @@ func level3changes():
 	level_3_change_done = true
 	
 	saturation_change(0.4)
-	print_debug("Level 3 shaders activate")
 	volume = -5
 	fight_audio.volume_db = volume
 	
@@ -213,7 +212,6 @@ func level4changes():
 	level_4_change_done = true
 	
 	saturation_change(0.2)
-	print_debug("Level 4 shaders activate")
 	volume = -2
 	fight_audio.volume_db = volume
 	
@@ -222,20 +220,17 @@ func level5changes():
 	level_5_change_done = true
 	
 	saturation_change(0.0)
-	print_debug("Level 5 shaders activate")
 	volume = 1
 	fight_audio.volume_db = volume
 
 func saturation_change(to):
+	var loops = 0
+	
 	var difference = saturation-to
 	if difference < 0:
 		difference *= -1
 	var change = difference/10
-	var loops = int(difference*50)+1
-	
-	print(difference)
-	print(change)
-	print(loops)
+	loops = int(difference*50)+1
 	
 	if to < saturation:
 		for i in range(loops):
@@ -249,12 +244,6 @@ func saturation_change(to):
 			background.material.set("shader_parameter/saturation", saturation)
 			head.material.set("shader_parameter/saturation", saturation)
 			hand_sprite.material.set("shader_parameter/saturation", saturation)
-	else:
-		print("lessgo")
-		pass
-
-func saturation_down(from,to):
-	pass
 	
 func default_level_change_flags_to_false():
 	level_1_change_done = false

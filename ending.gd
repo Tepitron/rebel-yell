@@ -68,5 +68,4 @@ func _process(delta: float) -> void:
 		label_5.modulate.g -= 0.01
 		label_5.modulate.b -= 0.01
 	elif counter >= 1800:
-		get_tree().change_scene_to_packed(main_menu)
-			
+		get_tree().quit()

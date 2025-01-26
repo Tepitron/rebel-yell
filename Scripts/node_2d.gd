@@ -9,16 +9,11 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	#if change <= -10.0:
-	#	rise = true
-	#if change >= 2:
-	#	rise = false
-	
+
 	if change < 0:
 		change += 0.1
 	else:
 		change = 1
-	
 	
 	map1.material.set("shader_parameter/contrast", change)
 	map2.material.set("shader_parameter/contrast", change)

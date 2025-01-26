@@ -21,10 +21,10 @@ script = ExtResource("1_evdja")
 [node name="Node2D" parent="." instance=ExtResource("3_ys857")]
 
 [node name="ClickResistanceUpTimer" type="Timer" parent="."]
-wait_time = 0.847
+wait_time = 6.57
 
 [node name="BubbleCounterDownTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.665
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rkqss")

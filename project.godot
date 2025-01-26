@@ -23,6 +23,7 @@ AudioStreamPlayer2d="*res://Music and sounds/audio_stream_player_2d.tscn"
 
 window/size/viewport_width=700
 window/size/viewport_height=700
+window/size/resizable=false
 
 [input]
 
