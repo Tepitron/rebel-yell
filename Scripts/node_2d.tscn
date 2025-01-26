@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cu1wkp7n0h6p0" path="res://Art_assets/floating tausta.png" id="4_v3khx"]
 [ext_resource type="PackedScene" path="res://Music and sounds/audio_stream_player_2d.tscn" id="8_dnxo0"]
 [ext_resource type="Texture2D" uid="uid://canl1s1u6mk2a" path="res://Art_assets/Instruction1.png" id="8_mhxm8"]
-[ext_resource type="AudioStream" uid="uid://bs2pwgxlop0oh" path="res://Music and sounds/Placeholder muffled.mp3" id="9_jwoli"]
+[ext_resource type="AudioStream" uid="uid://b1d7iks0fpawq" path="res://Music and sounds/Placeholder muffled no squirl.mp3" id="9_khvsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j03dq"]
 size = Vector2(83, 86.25)
@@ -78,5 +78,5 @@ scale = Vector2(0.12, 0.12)
 texture = ExtResource("8_mhxm8")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("8_dnxo0")]
-stream = ExtResource("9_jwoli")
+stream = ExtResource("9_khvsu")
 volume_db = -15.0
